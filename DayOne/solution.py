@@ -10,11 +10,7 @@ def readInput():
 
     return depths
 
-def part1():
-    # read file
-    # keep track of increased depths from one line to the next
-    depths = readInput()
-
+def depthCompare(depths):
     increases = 0
     for i in range(len(depths)):
         if i == 0:
@@ -23,26 +19,24 @@ def part1():
             if depths[i] > depths[i-1]:
                 increases = increases + 1
 
-    return increases
+    return increases 
 
-def part2():
+def part1(depths):
+    # read file
+    # keep track of increased depths from one line to the next
+
+    return depthCompare(depths)
+
+def part2(depths):
     # the same, but by comparing sums of a three measurement sliding window
-    depths = readInput()
 
     newDepths = []
     for i in range(len(depths)-2):
         newDepths.append(depths[i] + depths[i+1] + depths[i+2])
 
-    increases = 0
-    for i in range(len(newDepths)):
-        if i == 0:
-            pass
-        else:
-            if newDepths[i] > newDepths[i-1]:
-                increases = increases + 1
-
-    return increases    
+    return depthCompare(newDepths)
 
 if __name__ == "__main__":
-    print(part1())
-    print(part2())
+    depths = readInput()
+    print(part1(depths))
+    print(part2(depths))
