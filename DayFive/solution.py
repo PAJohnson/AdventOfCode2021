@@ -85,7 +85,6 @@ def part2(data):
             numOverlap = numOverlap + 1
     
     return numOverlap
-    pass
 
 if __name__ == "__main__":
     #data = readInput('sample.txt')
